@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LunchBoard – ako si objednať obed</title>
+<!-- The page behind the flyer's QR code. It is not for search engines:
+     only people who scan the flyer should land here. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Ako si objednať obed v aplikácii LunchBoard – video na jednu minútu.">
+<!-- What a chat app shows when someone shares the link. -->
+<meta property="og:title" content="LunchBoard – ako si objednať obed">
+<meta property="og:description" content="Video na jednu minútu.">
+<meta property="og:image" content="https://lunchboard.github.io/poster.jpg">
+<meta property="og:type" content="video.other">
+<!-- The film's own ground, so the browser's bars blend into the page. -->
+<meta name="theme-color" content="#f3f2ed">
+<!-- No tab icon: an empty one stops the browser asking for a missing file. -->
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --ground: #f3f2ed; /* the film's background colour, sampled from its frames */
+    color-scheme: light;
+  }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--ground);
+  }
+  /* The film is upright like the phone, so it fills the phone's width.
+     On a short or wide screen it shrinks to fit the visible height instead,
+     so the whole film is always on screen without scrolling. */
+  main {
+    min-height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  video {
+    display: block;
+    width: min(100vw, calc(100svh * 9 / 16));
+    height: auto;
+    aspect-ratio: 9 / 16;
+    background: var(--ground);
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- playsinline: an iPhone plays the film in the page (it already fills the
+       width) instead of jumping to its own player; full screen stays one tap
+       away in the controls. preload="metadata": nothing big downloads until
+       the worker taps play. -->
+  <video src="lunchboard.mp4" poster="poster.jpg" controls playsinline preload="metadata"
+         aria-label="Ako si objednať obed v aplikácii LunchBoard"></video>
+</main>
+</body>
+</html>
